@@ -1,0 +1,240 @@
+
+<style>
+  /* Global Styles */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  h1 {
+    color: #264D73;
+    font-size: 2.5rem;
+  }
+  h2, h3 {
+    color: #444;
+    font-weight: lighter;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+  body {
+    padding: .5rem;
+    max-width: 1000px;
+    margin: auto;
+  }
+  @media (min-width: 600px) {
+    body {
+      padding: 2rem;
+    }
+  }
+  body, input[text] {
+    color: #333;
+    font-family: Cambria, Georgia, serif;
+  }
+  a {
+    cursor: pointer;
+  }
+  button {
+    background-color: #eee;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: black;
+    font-size: 1.2rem;
+    padding: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+  button:hover {
+    background-color: black;
+    color: white;
+  }
+  button:disabled {
+    background-color: #eee;
+    color: #aaa;
+    cursor: auto;
+  }
+  
+  /* Navigation link styles */
+  nav a {
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #e8e8e8;
+    color: #3d3d3d;
+    border-radius: 4px;
+  }
+  
+  nav a:hover {
+    color: white;
+    background-color:  #42545C;
+  }
+  nav a.active {
+    background-color: black;
+    color: white;
+  }
+  hr {
+    margin: 1.5rem 0;
+  }
+  input[type="text"] {
+    box-sizing: border-box;
+    width: 100%;
+    padding: .5rem;
+  }
+  .ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+  </style>
+
+<h1 style="text-align: center;" niceTheme><b>Registration Form</b></h1>
+<div class="container" style="border-style: solid; padding: 20px;">
+  <div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name"
+               required
+               [(ngModel)]="model.name" name="name"
+               #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Name is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail ID</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email address"
+               required
+               [(ngModel)]="model.email" name="email"
+               #email="ngModel">
+        <!-- <div [hidden]="email.valid || email.pristine"
+             class="alert alert-danger">
+          E-mail is required
+        </div> -->
+      </div>
+
+      <div class="form-group">
+        <label for="name">Mobile Number</label>
+        <input type="number" class="form-control" id="mobileno" pattern="[7-9]{1}[0-9]{9}" maxlength="10" placeholder="Enter your mobile number"
+               required
+               [(ngModel)]="model.mobileno" name="mobileno"
+               #name="ngModel">
+        <!-- <div [hidden]="mobileno.valid || mobileno.pristine"
+             class="alert alert-danger">
+             Mobile Number is required
+        </div> -->
+    </div>      
+
+    <div class="form-group">
+      <label for="name">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter your password"
+             required
+             [(ngModel)]="model.password" name="password"
+             #name="ngModel">
+      <!-- <div [hidden]="password.valid || password.pristine"
+           class="alert alert-danger">
+           Password is required
+      </div> -->
+  </div>  
+
+  <div class="form-group">
+    <label for="name">Age</label>
+    <input type="number" class="form-control" id="age" maxlength="2" placeholder="Enter your age"
+           required
+           [(ngModel)]="model.age" name="age"
+           #name="ngModel">
+    <!-- <div [hidden]="age.valid || age.pristine"
+         class="alert alert-danger">
+         Age is required
+    </div> -->
+</div>  
+
+<div class="form-group">
+  <label for="name">Address</label>
+  <input type="text" class="form-control" id="address" placeholder="Enter your address"
+         required
+         [(ngModel)]="model.address" name="address"
+         #name="ngModel">
+  <!-- <div [hidden]="address.valid || address.pristine"
+       class="alert alert-danger">
+       Address is required
+  </div> -->
+</div>  
+
+
+      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+      <!-- <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button>
+      <i>with</i> reset
+
+      &nbsp;&nbsp;
+      <button type="button" class="btn btn-default" (click)="newHero()">New Hero</button>
+      <i>without</i> reset -->
+
+     <!-- NOT SHOWN IN DOCS -->
+      <!-- <div>
+        <hr>
+        Name via form.controls = {{showFormControls(heroForm)}}
+      </div> -->
+     <!-- - -->
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h2>You have submitted the following data:</h2>
+    <div class="row">
+      <div class="col-xs-3">Name:</div>
+      <div class="col-xs-9">{{ model.name }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">E-mail ID:</div>
+      <div class="col-xs-9">{{ model.email }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Mobile No.:</div>
+      <div class="col-xs-9">{{ model.mobileno }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Password:</div>
+      <div class="col-xs-9">{{ model.password }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Age:</div>
+      <div class="col-xs-9">{{ model.age }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Address:</div>
+      <div class="col-xs-9">{{ model.address }}</div>
+    </div>
+    
+      
+    
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>
+</div>
+
+<!-- ====================================================  -->
+  <!-- <div>
+    <form>
+
+ 
+
+    </form>
+  </div> -->
+
+<!-- ====================================================  -->
+<hr>
+<style>
+  .no-style .ng-valid {
+  border-left: 1px  solid #CCC
+}
+
+  .no-style .ng-invalid {
+  border-left: 1px  solid #CCC
+}
+</style>

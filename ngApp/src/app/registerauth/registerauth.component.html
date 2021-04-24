@@ -1,0 +1,58 @@
+<style>
+  
+  .py-5{        
+     height:750px;
+     /* padding-bottom: 50px; */
+     background: url("https://image.shutterstock.com/shutterstock/photos/722251978/display_1500/stock-photo-compass-over-map-with-toy-airplane-abstract-background-to-travel-concept-722251978.jpg") ;
+  }
+    </style>
+<div class="py-5" style="background-color:teal">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <span class="anchor" id="formLogin"></span>
+  
+        <!-- form card login -->
+        <div class="card rounded-0">
+          <div class="card-header">
+            <h3 class="mb-0"  niceTheme> {{registermsg | uppercase}}</h3>
+          </div>
+          <div class="card-body">
+            <form class="form" #userForm = "ngForm">
+                <b>{{userForm.value | json}}</b>
+                <div class="form-group">
+                    <label for="uname1">Name</label>
+                    <input type="text" [(ngModel)]="registerUserData.name" name="name" class="form-control rounded-0" required>
+                </div>
+              <div class="form-group">
+                <label for="uname1">Email</label>
+                <input type="text" [(ngModel)]="registerUserData.email" name="email" class="form-control rounded-0" required>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" [(ngModel)]="registerUserData.password" name="password" class="form-control rounded-0"  required>
+              </div>
+             
+              <div class="form-group">
+                <label for="uname1">Phone</label>
+                <input type="number" [(ngModel)]="registerUserData.phone" name="phone" class="form-control rounded-0" required>
+              </div>
+              <div class="form-group">
+                <label>Age</label>
+                <input type="number" [(ngModel)]="registerUserData.age" name="age" class="form-control rounded-0"  required>
+              </div>
+              <div class="form-group">
+                <label for="uname1">Address</label>
+                <input type="text" [(ngModel)]="registerUserData.address" name="address" class="form-control rounded-0" required>
+              </div>
+              <button type="button" (click)="registerUser()" class="btn btn-primary float-right">Register</button>
+            </form>
+          </div>
+          <!--/card-block-->
+        </div>
+        <!-- /form card login -->
+  
+      </div>
+  
+  
+    </div>
+  </div>

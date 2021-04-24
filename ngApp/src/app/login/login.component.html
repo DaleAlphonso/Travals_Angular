@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+       <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Ubuntu&display=swap" rel="stylesheet">
+        <!--<link rel="stylesheet" type="text/css" href="../CSS/userstyle.css">-->
+        <style>
+          body {
+ font-family: 'Roboto Condensed', sans-serif;
+}
+* {box-sizing: border-box;}
+input[type=radio]
+{
+  
+  z-index:1000;
+	padding: 15px;
+  margin: 10px 10px 10px 30px;
+  background: #f1f1f1;
+}
+input[type=text],input[type=password]{
+  user-select: text;
+  z-index:1000;
+  height:100%;
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  color:black;
+  background: #f1f1f1;
+}
+
+body{        
+   
+        padding-bottom: 50px;
+        background: url("https://image.shutterstock.com/shutterstock/photos/722251978/display_1500/stock-photo-compass-over-map-with-toy-airplane-abstract-background-to-travel-concept-722251978.jpg") ;
+    }
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+border-radius: 3%;
+  width: 100%;
+  opacity: 0.9;
+}
+#label
+{
+    text-align: left;
+    color:#f1f1f1;
+}
+
+
+.cancelbtn, .signupbtn {
+  float: center;
+  width: 50%;
+}
+label
+{
+    text-align: left;
+    color:#f1f1f1;
+}
+
+/* Add padding to container elements */
+.container {
+  width: 40%;
+  padding: 40px;
+  background-color: rgba(0,0,0,0.5);
+  height: 100%;
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 200px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+.linkd{
+    font-size: 18px;
+    text-decoration-line: none;
+    color:azure;
+}
+
+          </style>
+    </head>
+<body>
+<h1 style="color:black" text-align="center">{{loginmsg | uppercase}}</h1>
+
+  <div id="viewport"></div>
+
+    
+    <div class="container" id="label">
+      <label for="name"><b>Username:</b></label>
+	  <br>
+	  <br>
+    <input type="text" id="txtFName" placeholder="Enter Text" [(ngModel)]="message" /> 
+	  <br>
+    <span>{{message|propercase}}</span> 
+	  <br>
+		<label value="" for="password"><b>Password:</b></label>
+		<br>
+	  <br>
+      <input type="password" placeholder="Enter your password" name="password" required> 
+      <a class="linkd" href="/register">Create new account</a>
+  <br>
+        <br>
+        
+        <p><input type="checkbox" name="remember" /> Remember me
+	</p>
+	  
+        <button type="submit" class="signupbtn" name="login">Login</button>
+		
+      </div>
+  
+
+</body>
+</html>
+
+

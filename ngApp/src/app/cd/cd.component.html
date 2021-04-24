@@ -1,0 +1,19 @@
+<h1> {{title}} </h1>
+ 
+Show Me
+<input type="checkbox" [(ngModel)]="show">
+ 
+<div *ttIf="show">
+  Using the ttIf directive
+</div>
+ 
+<div *ngIf="show">
+  Using the ngIf directive
+</div>
+<br>
+<h1>Tooltip Directive </h1>
+ <br>
+<button ttToolTip toolTip="Tip of the day">Show Tip</button> 
+
+
+ 
