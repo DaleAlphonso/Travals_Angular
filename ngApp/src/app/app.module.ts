@@ -23,6 +23,9 @@ import { EventService } from './event.service';
 import { AustraliaComponent } from './australia/australia.component';
 import{GoogleMapsModule} from '@angular/google-maps';
 import { PaymentComponent } from './payment/payment.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+//import { FileSelectDirective } from 'ng2-file-upload';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,14 +42,18 @@ import { PaymentComponent } from './payment/payment.component';
     EventsComponent,
     SpecialEventsComponent,
     AustraliaComponent,
+  // FileSelectDirective,
     PaymentComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
   ],
   providers: [AuthService, AuthGuard, EventService, 
     {

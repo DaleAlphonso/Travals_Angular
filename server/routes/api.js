@@ -2,7 +2,54 @@ const express = require('express');
 const mongoose = require('mongoose');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
+const cors = require('cors'),
+const bodyParser= require('body-parser')
+const multer = require('multer');
+
+
+// File upload settings  
+const PATH = './uploads';
+
 const router = express.Router();
+router.use(bodyParser.urlencoded({extended: true}))
+
+let storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, PATH);
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + '-' + Date.now())
+  }
+});
+
+let upload = multer({
+  storage: storage
+});
+
+// Express settings
+const app = express();
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+
+// POST File
+app.post('/api/upload', upload.single('image'), function (req, res) {
+  if (!req.file) {
+    console.log("No file is available!");
+    return res.send({
+      success: false
+    });
+
+  } else {
+    console.log('File is available!');
+    return res.send({
+      success: true
+    })
+  }
+});
+
 const db = "mongodb://localhost:27017/eventsdb";
 mongoose.connect(db, function(err){
     if(err){
@@ -145,4 +192,6 @@ router.post('/register', (req, res) => {
     ]
     res.json(events)
   })
+
+
 module.exports = router
