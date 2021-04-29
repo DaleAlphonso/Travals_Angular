@@ -12,10 +12,18 @@ import { AustraliaComponent } from './australia/australia.component';
 //import { WorldComponent } from './world';
 import { PaymentComponent } from './payment/payment.component';
 import { cdComponent } from './cd';
+import {BlogHomeComponent} from './blog-home';
+import {BlogPostComponent} from './blog-post';
+import{TransactionComponent} from './transaction';
+import{LastpageComponent} from './lastpage';
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'australia', component: AustraliaComponent},
   {path: 'payment', component: PaymentComponent},
+  {path: 'blog-home', component: BlogHomeComponent},
+  {path: 'blog-post', component: BlogPostComponent},
+  {path: 'transaction', component: TransactionComponent},
+  {path: 'lastpage', component: LastpageComponent},
   // {
   //   path: 'login', component: LoginauthComponent},
   // { path: 'register', component: RegisterauthComponent },

@@ -25,6 +25,11 @@ import{GoogleMapsModule} from '@angular/google-maps';
 import { PaymentComponent } from './payment/payment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { BlogHomeComponent } from './blog-home/blog-home.component';
+import { BlogPostComponent } from './blog-post/blog-post.component';
+import { BlogService } from './shared/blog.service';
+import { TransactionComponent } from './transaction/transaction.component';
+import { LastpageComponent } from './lastpage/lastpage.component';
 //import { FileSelectDirective } from 'ng2-file-upload';
 @NgModule({
   declarations: [
@@ -43,7 +48,12 @@ import { ToastrModule } from 'ngx-toastr';
     SpecialEventsComponent,
     AustraliaComponent,
   // FileSelectDirective,
-    PaymentComponent
+    PaymentComponent,
+  BlogHomeComponent,
+  BlogPostComponent,
+  TransactionComponent,
+  LastpageComponent,
+  
     
   ],
   imports: [
@@ -55,7 +65,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot() // ToastrModule added
   ],
-  providers: [AuthService, AuthGuard, EventService, 
+  providers: [AuthService, AuthGuard, EventService, BlogService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

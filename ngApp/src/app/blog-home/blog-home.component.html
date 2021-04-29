@@ -1,0 +1,28 @@
+<h1 style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bolder; color: black;"> <b>BLOGS </b></h1>
+   <h2 style="text-align: center; color: black;">Share your experience with TRAVALS by clicking on the New Post given below</h2>
+   <h2 style="text-align: center;"><button class="btn btn-primary"><a  style="color: black; font-weight: bold; font-size: 20px;" class="nav-link" href="/blog-post" (click)= "newBlog($event)">New Post</a></button></h2>
+
+    <hr  style="border-top-color: black; border-top-width: 5px;">
+    <h3 style="text-align: center;  color: black; font-family: Georgia, 'Times New Roman', Times, serif;"> <b>Experience Shared by Our Customers !</b></h3>
+
+    <div class="card">
+      <div class="card-body">
+         <table class="table table-hover">
+            <thead>
+               <tr>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Operations</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr  *ngFor="let blog of blogs">
+                 <td>{{blog.title}}</td>
+                 <td>{{blog.desc}}</td>
+                 <td><button class="btn btn-primary" (click)="doUpdate(blog)">Edit     </button>                            
+                  <button class="btn btn-danger" style= "margin-left:10px;" (click)="doDelete(blog)">     Delete</button></td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+    </div>

@@ -1,0 +1,36 @@
+<style>
+  
+    .py-5{        
+       height:530px;
+       padding-bottom: 50px;
+       background: url("https://image.shutterstock.com/shutterstock/photos/722251978/display_1500/stock-photo-compass-over-map-with-toy-airplane-abstract-background-to-travel-concept-722251978.jpg") ;
+    }
+      </style>
+<div class="py-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card rounded-0">
+                <div class="card-header">
+                    <h3 class="mb-0">BLOG POST</h3>
+                  </div>
+                    <div class="card-body">
+                        <form (ngSubmit) = "blogupdate()">
+                            <div class="form-group">
+                                <label for="title">Blog Title</label>
+                                <input type="text" name="title" [(ngModel)] = "blog.title" class= "form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Blog Description</label>
+                                <input type="text" name="desc" [(ngModel)] = "blog.desc" class= "form-control">
+                            </div>
+                            <input type="Submit" value="Submit" class="btn btn-success">
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+        
+            
+            
