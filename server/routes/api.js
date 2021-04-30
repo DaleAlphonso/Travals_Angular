@@ -95,8 +95,10 @@ router.get('/read',(req, res,next) =>{
 //   }
 // });
 //const url = "mongodb://localhost:27017/";
- const db = "mongodb://localhost:27017/eventsdb";
+// const db = "mongodb://localhost:27017/eventsdb";
 // const db1 = "mongodb://localhost:27017/blogsdb";
+
+const db ="mongodb+srv://dale-user:dale@cluster0.sjoye.mongodb.net/Travals?retryWrites=true&w=majority"
 
 mongoose.set('useFindAndModify', false);
 
